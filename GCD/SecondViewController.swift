@@ -35,17 +35,33 @@ class SecondViewController: UIViewController {
         
         //imageURL = URL(string: "https://en.wikipedia.org/wiki/Main_Page#/media/File:Mario_Draghi_2021_cropped.jpg")
         //imageURL = URL(string: "https://picsum.photos/200/300")
+        
         imageURL = URL(string: "https://picsum.photos/2000/3000")
         
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         
-        guard let url = imageURL, let imageData = try? Data(contentsOf: url) else{
-            print("Unknown error")
-            return
+        // I wrote it from memory but it's better to learn something new
+//        DispatchQueue.main.async { [weak self, imageURL] in
+//            guard let url = imageURL, let imageData = try? Data(contentsOf: url) else{
+//                print("Unknown error")
+//                return
+//            }
+//
+//            self?.image = UIImage(data: imageData)
+//        }
+        
+        var queue = DispatchQueue.global(qos: .utility)
+        
+        queue.async { [weak self, imageURL] in
+            guard let url = imageURL, let imageData = try? Data(contentsOf: url) else{
+                print("Unknown error")
+                return
+            }
+
+            DispatchQueue.main.async {
+                self?.image = UIImage(data: imageData)
+            }
         }
-
-        self.image = UIImage(data: imageData)
     }
-
 }
