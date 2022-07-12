@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O97-H5-3fG">
-                                <rect key="frame" x="98.5" y="452.5" width="217" height="45.5"/>
+                                <rect key="frame" x="50" y="349" width="314" height="46"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Go to Second VC">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="26"/>
@@ -26,12 +26,25 @@
                                     <segue destination="K59-vn-wWv" kind="show" id="e7D-G1-bxl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbr-Oi-1pR">
+                                <rect key="frame" x="50" y="452" width="314" height="46"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Run Multithreading tests 1">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="26"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="runMultithreadingTests_1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WGB-Es-oFl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="O97-H5-3fG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Qqe-T9-Nud"/>
+                            <constraint firstItem="Gbr-Oi-1pR" firstAttribute="top" secondItem="O97-H5-3fG" secondAttribute="bottom" constant="57" id="Lgq-EE-R12"/>
+                            <constraint firstItem="O97-H5-3fG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-103" id="Qqe-T9-Nud"/>
+                            <constraint firstItem="Gbr-Oi-1pR" firstAttribute="trailing" secondItem="O97-H5-3fG" secondAttribute="trailing" id="k6r-kr-Deh"/>
                             <constraint firstItem="O97-H5-3fG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lgM-us-hbG"/>
+                            <constraint firstItem="Gbr-Oi-1pR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xSP-mc-iGf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dbz-Ig-gT2"/>

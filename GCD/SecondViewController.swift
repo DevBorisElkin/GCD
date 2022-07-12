@@ -29,7 +29,7 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchImage()
-        delay(3, completionHander: loginAlert)
+        //delay(3, completionHander: loginAlert)
     }
     
     fileprivate func delay(_ delay: Int, completionHander: @escaping () -> ()){
