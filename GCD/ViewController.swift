@@ -23,24 +23,33 @@ class ViewController: UIViewController {
     // ?
     // Barriers - Барьеры
     
+    var queue: DispatchQueue?
+    
     func multithreadingTests(){
         
-        
-        //var array = [Int]()
-        // по идее тут должны теряться элементы - то есть в массиве не будет 10 элементов, будет другое значение
-//        DispatchQueue.concurrentPerform(iterations: 10) { index in
-//            //print(index)
-//            array.append(index)
-//        }
-//        print(array)
-        
-        var array = SafeArray<Int>()
-        DispatchQueue.concurrentPerform(iterations: 10) { (index) in
-            array.append(element: index)
+        if(queue == nil){
+            queue = DispatchQueue(label: "concurrentQueue", qos: .background, attributes: .concurrent)
         }
-        //array.updateElements()
-        //array.printArray()
-        print(array.elements)
+        
+        queue?.async{
+            // по идее тут должны теряться элементы - то есть в массиве не будет 10 элементов, будет другое значение
+            // но это работает так только если DispatchQueue.concurrentPerform вызывается в concurrentQuque, в serialQueue
+            // все-таки без магии все элементы заполнятся без проблем
+            var array = [Int]()
+            DispatchQueue.concurrentPerform(iterations: 10) { index in
+                //print(index)
+                array.append(index)
+            }
+            print("not safe: \(array)")
+            
+            var array2 = SafeArray<Int>()
+            DispatchQueue.concurrentPerform(iterations: 10) { (index) in
+                array2.append(element: index)
+            }
+            //array2.updateElements()
+            //array2.printArray()
+            print("safe: \(array2.elements)")
+        }
     }
 }
 
@@ -50,7 +59,8 @@ class SafeArray<Element> {
     private let queue = DispatchQueue(label: "DispatchBarrier", attributes: .concurrent)
     
     public func append(element: Element){
-        queue.async(flags: .barrier){
+        //queue.async(flags: .barrier){
+        queue.sync(flags: .barrier){
             self.array.append(element)
         }
     }
