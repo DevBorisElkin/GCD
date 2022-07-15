@@ -313,6 +313,14 @@
                                     <action selector="stopBlock_1:" destination="IWr-II-0vP" eventType="touchUpInside" id="3y9-TT-cac"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l23-Y9-cxr">
+                                <rect key="frame" x="159" y="118" width="96" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start Block"/>
+                                <connections>
+                                    <action selector="runTests_1:" destination="IWr-II-0vP" eventType="touchUpInside" id="GX3-Xj-izt"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGa-gs-J8c">
                                 <rect key="frame" x="31" y="118" width="99" height="31"/>
                                 <state key="normal" title="Button"/>
@@ -321,12 +329,12 @@
                                     <action selector="simple_test_Swiftbook:" destination="IWr-II-0vP" eventType="touchUpInside" id="pDj-KN-XqL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l23-Y9-cxr">
-                                <rect key="frame" x="159" y="118" width="96" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eed-Lq-NPh">
+                                <rect key="frame" x="31" y="180" width="157" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Start Block"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Semaphore Example"/>
                                 <connections>
-                                    <action selector="runTests_1:" destination="IWr-II-0vP" eventType="touchUpInside" id="GX3-Xj-izt"/>
+                                    <action selector="runSemaphoreExample:" destination="IWr-II-0vP" eventType="touchUpInside" id="3K6-hH-D0U"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -337,16 +345,23 @@
                             <constraint firstItem="FGa-gs-J8c" firstAttribute="top" secondItem="Sxe-id-Vcc" secondAttribute="top" constant="30" id="F5d-mO-ZtL"/>
                             <constraint firstItem="cQA-D6-Q6h" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Sxe-id-Vcc" secondAttribute="leading" id="GxW-7j-d6x"/>
                             <constraint firstItem="cQA-D6-Q6h" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="l23-Y9-cxr" secondAttribute="trailing" constant="8" symbolic="YES" id="HHq-qf-yy4"/>
+                            <constraint firstItem="Eed-Lq-NPh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Sxe-id-Vcc" secondAttribute="leading" id="KhV-wv-SsJ"/>
                             <constraint firstItem="cQA-D6-Q6h" firstAttribute="top" secondItem="Sxe-id-Vcc" secondAttribute="top" constant="30" id="RnP-5L-Q5C"/>
                             <constraint firstItem="l23-Y9-cxr" firstAttribute="leading" secondItem="Sxe-id-Vcc" secondAttribute="leading" constant="159" id="aUI-Bx-soB"/>
                             <constraint firstItem="FGa-gs-J8c" firstAttribute="leading" secondItem="Sxe-id-Vcc" secondAttribute="leading" constant="31" id="jvn-Nz-w4S"/>
                             <constraint firstItem="l23-Y9-cxr" firstAttribute="top" secondItem="Sxe-id-Vcc" secondAttribute="top" constant="30" id="nq4-1r-1Hd"/>
+                            <constraint firstItem="Sxe-id-Vcc" firstAttribute="trailing" secondItem="Eed-Lq-NPh" secondAttribute="trailing" constant="226" id="sXD-GH-zvv"/>
+                            <constraint firstItem="Eed-Lq-NPh" firstAttribute="top" secondItem="Sxe-id-Vcc" secondAttribute="top" constant="92" id="yyn-cZ-o5l"/>
                             <constraint firstItem="Sxe-id-Vcc" firstAttribute="trailing" secondItem="cQA-D6-Q6h" secondAttribute="trailing" constant="38" id="zBN-RN-dVv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XYV-lQ-Pe2"/>
+                    <connections>
+                        <outlet property="semaphoreExample" destination="xY6-be-Gg2" id="F1F-Ch-v19"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="usr-Ym-14y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="xY6-be-Gg2" customClass="SemaphoreExample" customModule="GCD" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="2486.9565217391305" y="-619.41964285714278"/>
         </scene>

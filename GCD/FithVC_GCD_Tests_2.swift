@@ -9,6 +9,9 @@ import UIKit
 
 class FithVC_GCD_Tests_2: UIViewController {
 
+    @IBOutlet var semaphoreExample: SemaphoreExample!
+    
+    
     // workItem.perform() -> work item can be called straight away (without queue)
     // workItem.wait() -> will act like a wall, the code below won't execute until workItem finished executing
     // workItem.cancel() -> will stop execution of workItem, we can check if(!workItem.isCancelled){ workItem.cancel() }
@@ -108,5 +111,10 @@ class FithVC_GCD_Tests_2: UIViewController {
         print("Block was cancelled")
     }
     
-
+    
+    
+    @IBAction func runSemaphoreExample(_ sender: Any) {
+        semaphoreExample.startExample()
+    }
+    
 }
