@@ -83,35 +83,43 @@ class FourthVC_DispatchGroup_Tests: UIViewController {
             
             guard let vc = self else { print("VC destroyed, returning"); return }
             
-            vc.dispatchGroup.enter()
-            vc.uiImage1 = staticClass.loadImageForImageView(urlString: staticClass.urlStringToLoadImages)!
-            print("image 1 loaded")
-            vc.dispatchGroup.leave()
+            var queue = DispatchQueue(label: "Some queue", attributes: .concurrent)
             
             vc.dispatchGroup.enter()
-            vc.uiImage2 = staticClass.loadImageForImageView(urlString: staticClass.urlStringToLoadImages)!
-            print("image 2 loaded")
-            vc.dispatchGroup.leave()
+            queue.async {
+                vc.uiImage1 = staticClass.loadImageForImageView(urlString: staticClass.urlStringToLoadImages)!
+                print("image 1 loaded")
+                vc.dispatchGroup.leave()
+            }
             
             vc.dispatchGroup.enter()
-            sleep(5)
-            print("delay executed 1")
-            vc.dispatchGroup.leave()
+            queue.async {
+                vc.uiImage2 = staticClass.loadImageForImageView(urlString: staticClass.urlStringToLoadImages)!
+                print("image 2 loaded")
+                vc.dispatchGroup.leave()
+            }
             
             vc.dispatchGroup.enter()
-            vc.uiImage3 = staticClass.loadImageForImageView(urlString: staticClass.urlStringToLoadImages)!
-            print("image 3 loaded")
-            vc.dispatchGroup.leave()
+            queue.async {
+                vc.uiImage3 = staticClass.loadImageForImageView(urlString: staticClass.urlStringToLoadImages)!
+                print("image 3 loaded")
+                vc.dispatchGroup.leave()
+            }
             
             vc.dispatchGroup.enter()
-            vc.uiImage4 = staticClass.loadImageForImageView(urlString: staticClass.urlStringToLoadImages)!
-            print("image 4 loaded")
-            vc.dispatchGroup.leave()
+            queue.async {
+                vc.uiImage4 = staticClass.loadImageForImageView(urlString: staticClass.urlStringToLoadImages)!
+                print("image 4 loaded")
+                vc.dispatchGroup.leave()
+            }
             
             vc.dispatchGroup.enter()
-            sleep(5)
-            print("delay executed 2")
-            vc.dispatchGroup.leave()
+            queue.async {
+                print("started delay")
+                sleep(5)
+                print("ended delay")
+                vc.dispatchGroup.leave()
+            }
             
             print("Code after groups code executed")
             
@@ -125,12 +133,22 @@ class FourthVC_DispatchGroup_Tests: UIViewController {
                 print("and have been successfully set")
             }
             
+            
+            //print("started waiting time out")
+            // will not pass the code below unloss group finishes all tasks or time runs out
+            // if theres less group.leave() than group.enter() then group will never call notify and all waiting finishes
+            //let result = vc.dispatchGroup.wait(timeout: .now() + 15)
+            //print("result of waiting for dispatch group: \(result)")
+            
+            
+            
             // this thing is called for some reason only after vc.dispatchGroup.notify is called
-            print("Code kept running and went forward.")
+            //print("Code kept running and went forward.")
             
-            //vc.dispatchGroup.wait()
+            // will just wait until dispatch group successfully finishes work without timeout
+            vc.dispatchGroup.wait()
             
-            //vc.dispatchGroup.wait(timeout: .now() + 3)
+            print("Code kept running and went forward___2.")
         }
     }
     
