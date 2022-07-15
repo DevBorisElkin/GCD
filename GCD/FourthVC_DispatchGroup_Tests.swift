@@ -57,6 +57,7 @@ class FourthVC_DispatchGroup_Tests: UIViewController {
                 print("image 4 loaded")
             }
             viewController.concurrentQueue.async(group: viewController.dispatchGroup, qos: .background) { [weak self] in
+                print("delay started")
                 sleep(5)
                 print("delay executed")
             }
@@ -69,6 +70,7 @@ class FourthVC_DispatchGroup_Tests: UIViewController {
                 self?.image_3.image = self?.uiImage3
                 self?.image_4.image = self?.uiImage4
             }
+            print("Code kept running below")
         }
     }
     
