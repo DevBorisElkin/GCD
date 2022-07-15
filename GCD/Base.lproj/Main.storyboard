@@ -108,11 +108,19 @@
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibh-2E-zgv">
-                                <rect key="frame" x="130" y="140" width="154" height="50"/>
+                                <rect key="frame" x="47.5" y="137" width="169.5" height="50"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Load Images"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Load Images First Way"/>
                                 <connections>
                                     <action selector="onClick_LoadImagesOne:" destination="7JC-YO-V8a" eventType="touchUpInside" id="Y7r-Aq-ToB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhb-ZE-8cN">
+                                <rect key="frame" x="239" y="138" width="146" height="48"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Load Images Second Way"/>
+                                <connections>
+                                    <action selector="onClick_LoadImagesTwo:" destination="7JC-YO-V8a" eventType="touchUpInside" id="e2p-Vf-dN4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -121,13 +129,16 @@
                         <constraints>
                             <constraint firstItem="ITW-ul-acM" firstAttribute="top" secondItem="Jjc-6g-ROb" secondAttribute="top" constant="149" id="854-W5-oRz"/>
                             <constraint firstItem="ITW-ul-acM" firstAttribute="width" secondItem="Nb7-7b-6i8" secondAttribute="width" multiplier="0.903382" id="Efs-ib-gUW"/>
-                            <constraint firstItem="ibh-2E-zgv" firstAttribute="leading" secondItem="Jjc-6g-ROb" secondAttribute="leading" constant="130" id="FWF-hd-jxS"/>
-                            <constraint firstItem="ITW-ul-acM" firstAttribute="top" secondItem="ibh-2E-zgv" secondAttribute="bottom" constant="47" id="Ocm-x2-6en"/>
-                            <constraint firstItem="ibh-2E-zgv" firstAttribute="centerX" secondItem="ITW-ul-acM" secondAttribute="centerX" id="a4n-RZ-5B9"/>
+                            <constraint firstItem="ibh-2E-zgv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jjc-6g-ROb" secondAttribute="leading" id="FWF-hd-jxS"/>
+                            <constraint firstItem="ITW-ul-acM" firstAttribute="top" secondItem="ibh-2E-zgv" secondAttribute="bottom" constant="50" id="Ocm-x2-6en"/>
+                            <constraint firstItem="Jjc-6g-ROb" firstAttribute="trailing" secondItem="Jhb-ZE-8cN" secondAttribute="trailing" constant="29" id="ULb-lJ-pkL"/>
+                            <constraint firstItem="ibh-2E-zgv" firstAttribute="centerX" secondItem="ITW-ul-acM" secondAttribute="centerX" constant="-75" id="a4n-RZ-5B9"/>
                             <constraint firstItem="ITW-ul-acM" firstAttribute="leading" secondItem="Jjc-6g-ROb" secondAttribute="leading" constant="20" id="ldz-wU-SYf"/>
-                            <constraint firstItem="ibh-2E-zgv" firstAttribute="top" secondItem="Jjc-6g-ROb" secondAttribute="top" constant="52" id="mNk-yP-8ak"/>
+                            <constraint firstItem="ibh-2E-zgv" firstAttribute="top" secondItem="Jjc-6g-ROb" secondAttribute="top" constant="49" id="mNk-yP-8ak"/>
                             <constraint firstItem="ITW-ul-acM" firstAttribute="trailing" secondItem="Nb7-7b-6i8" secondAttribute="trailingMargin" id="mq1-tU-C0P"/>
+                            <constraint firstItem="Jhb-ZE-8cN" firstAttribute="leading" secondItem="ibh-2E-zgv" secondAttribute="trailing" constant="22" id="o0j-y2-zoZ"/>
                             <constraint firstItem="Jjc-6g-ROb" firstAttribute="bottom" secondItem="ITW-ul-acM" secondAttribute="bottom" constant="336" id="qJs-KF-kX8"/>
+                            <constraint firstItem="Jhb-ZE-8cN" firstAttribute="baseline" secondItem="ibh-2E-zgv" secondAttribute="baseline" id="wTB-UL-A9z"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="49y-Qm-fKl"/>

@@ -25,6 +25,16 @@ class FourthVC_DispatchGroup_Tests: UIViewController {
     var uiImage4: UIImage?
     
     @IBAction func onClick_LoadImagesOne(_ sender: Any) {
+        loadImagesFirstWay()
+    }
+    
+    @IBAction func onClick_LoadImagesTwo(_ sender: Any) {
+        loadImagesSecondWay()
+    }
+    
+    
+    func loadImagesFirstWay(){
+        print("Load Images First Way")
         typealias vc = FourthVC_DispatchGroup_Tests
         DispatchQueue.global(qos: .background).async { [weak self] in
             
@@ -60,13 +70,66 @@ class FourthVC_DispatchGroup_Tests: UIViewController {
                 self?.image_4.image = self?.uiImage4
             }
         }
+    }
+    
+    func loadImagesSecondWay(){
+        print("Load Images Second Way")
+        typealias staticClass = FourthVC_DispatchGroup_Tests
         
-        
-        
-        
-        
-        
-        
+        // Первый пример работал, второй тоже работает, но не так, как ожидалось, т.к. во втором случае код по очереди загружает изображения то есть нет асинхронности, одновременной загрузки
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            
+            guard let vc = self else { print("VC destroyed, returning"); return }
+            
+            vc.dispatchGroup.enter()
+            vc.uiImage1 = staticClass.loadImageForImageView(urlString: staticClass.urlStringToLoadImages)!
+            print("image 1 loaded")
+            vc.dispatchGroup.leave()
+            
+            vc.dispatchGroup.enter()
+            vc.uiImage2 = staticClass.loadImageForImageView(urlString: staticClass.urlStringToLoadImages)!
+            print("image 2 loaded")
+            vc.dispatchGroup.leave()
+            
+            vc.dispatchGroup.enter()
+            sleep(5)
+            print("delay executed 1")
+            vc.dispatchGroup.leave()
+            
+            vc.dispatchGroup.enter()
+            vc.uiImage3 = staticClass.loadImageForImageView(urlString: staticClass.urlStringToLoadImages)!
+            print("image 3 loaded")
+            vc.dispatchGroup.leave()
+            
+            vc.dispatchGroup.enter()
+            vc.uiImage4 = staticClass.loadImageForImageView(urlString: staticClass.urlStringToLoadImages)!
+            print("image 4 loaded")
+            vc.dispatchGroup.leave()
+            
+            vc.dispatchGroup.enter()
+            sleep(5)
+            print("delay executed 2")
+            vc.dispatchGroup.leave()
+            
+            print("Code after groups code executed")
+            
+            vc.dispatchGroup.notify(queue: DispatchQueue.main){
+                print("4 images loaded successfully")
+               
+               self?.image_1.image = self?.uiImage1
+               self?.image_2.image = self?.uiImage2
+               self?.image_3.image = self?.uiImage3
+               self?.image_4.image = self?.uiImage4
+                print("and have been successfully set")
+            }
+            
+            // this thing is called for some reason only after vc.dispatchGroup.notify is called
+            print("Code kept running and went forward.")
+            
+            //vc.dispatchGroup.wait()
+            
+            //vc.dispatchGroup.wait(timeout: .now() + 3)
+        }
     }
     
     static func loadImageForImageView(urlString: String, completion: (UIImage) -> ()){
