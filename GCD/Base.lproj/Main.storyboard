@@ -337,6 +337,14 @@
                                     <action selector="runSemaphoreExample:" destination="IWr-II-0vP" eventType="touchUpInside" id="3K6-hH-D0U"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZrL-h7-fou">
+                                <rect key="frame" x="31" y="237" width="120" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Timer Example"/>
+                                <connections>
+                                    <action selector="launchTimer:" destination="IWr-II-0vP" eventType="touchUpInside" id="swy-vc-G2q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sxe-id-Vcc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -348,9 +356,12 @@
                             <constraint firstItem="Eed-Lq-NPh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Sxe-id-Vcc" secondAttribute="leading" id="KhV-wv-SsJ"/>
                             <constraint firstItem="cQA-D6-Q6h" firstAttribute="top" secondItem="Sxe-id-Vcc" secondAttribute="top" constant="30" id="RnP-5L-Q5C"/>
                             <constraint firstItem="l23-Y9-cxr" firstAttribute="leading" secondItem="Sxe-id-Vcc" secondAttribute="leading" constant="159" id="aUI-Bx-soB"/>
+                            <constraint firstItem="ZrL-h7-fou" firstAttribute="leading" secondItem="Sxe-id-Vcc" secondAttribute="leading" constant="31" id="cL7-EF-nIm"/>
                             <constraint firstItem="FGa-gs-J8c" firstAttribute="leading" secondItem="Sxe-id-Vcc" secondAttribute="leading" constant="31" id="jvn-Nz-w4S"/>
+                            <constraint firstItem="Sxe-id-Vcc" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZrL-h7-fou" secondAttribute="trailing" symbolic="YES" id="kjy-Gc-Y37"/>
                             <constraint firstItem="l23-Y9-cxr" firstAttribute="top" secondItem="Sxe-id-Vcc" secondAttribute="top" constant="30" id="nq4-1r-1Hd"/>
                             <constraint firstItem="Sxe-id-Vcc" firstAttribute="trailing" secondItem="Eed-Lq-NPh" secondAttribute="trailing" constant="226" id="sXD-GH-zvv"/>
+                            <constraint firstItem="ZrL-h7-fou" firstAttribute="top" secondItem="Sxe-id-Vcc" secondAttribute="top" constant="149" id="tr8-cC-w3V"/>
                             <constraint firstItem="Eed-Lq-NPh" firstAttribute="top" secondItem="Sxe-id-Vcc" secondAttribute="top" constant="92" id="yyn-cZ-o5l"/>
                             <constraint firstItem="Sxe-id-Vcc" firstAttribute="trailing" secondItem="cQA-D6-Q6h" secondAttribute="trailing" constant="38" id="zBN-RN-dVv"/>
                         </constraints>

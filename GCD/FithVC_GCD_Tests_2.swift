@@ -38,6 +38,11 @@ class FithVC_GCD_Tests_2: UIViewController {
         stopFirstBlock()
     }
     
+    @IBAction func launchTimer(_ sender: Any) {
+        launchTestTimer()
+    }
+    
+    
     func simpleTestSwiftbook(){
         print("Simple test swiftbook")
         
