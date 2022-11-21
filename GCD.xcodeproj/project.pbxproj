@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524ABC68292AD845005AEA92 /* FirstNsOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524ABC67292AD845005AEA92 /* FirstNsOperationViewController.swift */; };
 		525A163D287F7F8C0037F9D2 /* ThirdVC_GCD_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525A163C287F7F8C0037F9D2 /* ThirdVC_GCD_Tests.swift */; };
 		525B5D192880B892009472C1 /* FourthVC_DispatchGroup_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B5D182880B892009472C1 /* FourthVC_DispatchGroup_Tests.swift */; };
 		525B5D1B2882008C009472C1 /* FithVC_GCD_Tests_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B5D1A2882008C009472C1 /* FithVC_GCD_Tests_2.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		524ABC67292AD845005AEA92 /* FirstNsOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNsOperationViewController.swift; sourceTree = "<group>"; };
 		525A163C287F7F8C0037F9D2 /* ThirdVC_GCD_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVC_GCD_Tests.swift; sourceTree = "<group>"; };
 		525B5D182880B892009472C1 /* FourthVC_DispatchGroup_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthVC_DispatchGroup_Tests.swift; sourceTree = "<group>"; };
 		525B5D1A2882008C009472C1 /* FithVC_GCD_Tests_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FithVC_GCD_Tests_2.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		524ABC66292AD5A7005AEA92 /* NSOperationTests */ = {
+			isa = PBXGroup;
+			children = (
+				524ABC67292AD845005AEA92 /* FirstNsOperationViewController.swift */,
+			);
+			path = NSOperationTests;
+			sourceTree = "<group>";
+		};
 		52A0EE2128BE299500578154 /* ModernTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +88,7 @@
 		52F46547287CABAC00C2A877 /* GCD */ = {
 			isa = PBXGroup;
 			children = (
+				524ABC66292AD5A7005AEA92 /* NSOperationTests */,
 				52A0EE2128BE299500578154 /* ModernTests */,
 				52F46548287CABAC00C2A877 /* AppDelegate.swift */,
 				52F4654A287CABAC00C2A877 /* SceneDelegate.swift */,
@@ -172,6 +183,7 @@
 				525B5D1B2882008C009472C1 /* FithVC_GCD_Tests_2.swift in Sources */,
 				525A163D287F7F8C0037F9D2 /* ThirdVC_GCD_Tests.swift in Sources */,
 				52F4654D287CABAC00C2A877 /* ViewController.swift in Sources */,
+				524ABC68292AD845005AEA92 /* FirstNsOperationViewController.swift in Sources */,
 				52F46549287CABAC00C2A877 /* AppDelegate.swift in Sources */,
 				52A0EE2328BE29BD00578154 /* WorkItemViewController.swift in Sources */,
 				525B5D192880B892009472C1 /* FourthVC_DispatchGroup_Tests.swift in Sources */,

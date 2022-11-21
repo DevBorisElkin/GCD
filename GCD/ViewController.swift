@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         
         if(queue == nil){
             queue = DispatchQueue(label: "concurrentQueue", qos: .background, attributes: .concurrent)
+            //queue = DispatchQueue(label: "concurrentQueue", qos: .userInitiated, attributes: .concurrent)
         }
         
         queue?.async{
@@ -56,7 +57,7 @@ class ViewController: UIViewController {
 
 class SafeArray<Element> {
     private var array = [Element]()
-    private let queue = DispatchQueue(label: "DispatchBarrier", attributes: .concurrent)
+    private let queue = DispatchQueue(label: "DispatchBarrier", qos: .userInitiated, attributes: .concurrent)
     
     public func append(element: Element){
         //queue.async(flags: .barrier){
@@ -80,6 +81,23 @@ class SafeArray<Element> {
     
     public func printArray(){
         print(array)
+    }
+}
+
+extension CGFloat {
+    static func random() -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    }
+}
+
+extension UIColor {
+    static func random() -> UIColor {
+        return UIColor(
+           red:   .random(),
+           green: .random(),
+           blue:  .random(),
+           alpha: 1.0
+        )
     }
 }
 
